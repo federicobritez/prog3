@@ -46,6 +46,9 @@ namespace PaintForm0
             this.TextoButton = new System.Windows.Forms.Button();
             this.LapizButton = new System.Windows.Forms.Button();
             this.SeleccionButton = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.textDebug = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRosa)).BeginInit();
@@ -65,7 +68,7 @@ namespace PaintForm0
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(534, 436);
+            this.pictureBox1.Size = new System.Drawing.Size(534, 399);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -237,7 +240,7 @@ namespace PaintForm0
             // SeleccionButton
             // 
             this.SeleccionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SeleccionButton.Location = new System.Drawing.Point(556, 149);
+            this.SeleccionButton.Location = new System.Drawing.Point(553, 148);
             this.SeleccionButton.Name = "SeleccionButton";
             this.SeleccionButton.Size = new System.Drawing.Size(72, 23);
             this.SeleccionButton.TabIndex = 7;
@@ -245,11 +248,35 @@ namespace PaintForm0
             this.SeleccionButton.UseVisualStyleBackColor = true;
             this.SeleccionButton.Click += new System.EventHandler(this.SeleccionButton_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 454);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(421, 20);
+            this.textBox1.TabIndex = 8;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // fontDialog1
+            // 
+            this.fontDialog1.Apply += new System.EventHandler(this.fontDialog1_Apply);
+            // 
+            // textDebug
+            // 
+            this.textDebug.AutoSize = true;
+            this.textDebug.Location = new System.Drawing.Point(12, 438);
+            this.textDebug.Name = "textDebug";
+            this.textDebug.Size = new System.Drawing.Size(82, 13);
+            this.textDebug.TabIndex = 9;
+            this.textDebug.Text = "Area de Debug:";
+            this.textDebug.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 461);
+            this.ClientSize = new System.Drawing.Size(640, 486);
+            this.Controls.Add(this.textDebug);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.SeleccionButton);
             this.Controls.Add(this.LapizButton);
             this.Controls.Add(this.TextoButton);
@@ -298,6 +325,9 @@ namespace PaintForm0
         private System.Windows.Forms.Button TextoButton;
         private System.Windows.Forms.Button LapizButton;
         private System.Windows.Forms.Button SeleccionButton;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.Label textDebug;
     }
 }
 
