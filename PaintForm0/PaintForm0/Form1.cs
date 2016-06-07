@@ -25,8 +25,9 @@ namespace PaintForm0
         bool bClickIzq = false;  // Variable para saber si el click esta activado
 
         Herramientas herrSeleccionada = Herramientas.Lapiz; //Por default la herramienta es el lapiz
-        /*************************************/
 
+
+        /*************************************/
 
         /*************************************/
         //cortar
@@ -40,9 +41,24 @@ namespace PaintForm0
         public DashStyle cropDashStyle = DashStyle.DashDot;
         /*************************************/
 
+
+        /*************************************/
+        //Font fuente =
+        Font estiloFuente;
+        Color colorFuente;
+
+        
+
         public Form1()
         {
             InitializeComponent();
+            fontDialog1.FontMustExist = true;
+            fontDialog1.AllowVerticalFonts = false;
+            fontDialog1.ScriptsOnly = true;
+            fontDialog1.ShowApply = false;
+            fontDialog1.ShowHelp = false;
+            fontDialog1.ShowColor = true;
+            
         }
 
 
@@ -53,8 +69,9 @@ namespace PaintForm0
         }
 
 
-        private void pictureBox1_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        private void pictureBox1_Paint_1(object sender, System.Windows.Forms.PaintEventArgs e)
         {
+           this.g = e.Graphics;
         }
 
 
@@ -75,11 +92,9 @@ namespace PaintForm0
 
             //para centrar la imagen donde corresponde
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-
+            //g = pictureBox1.CreateGraphics();
 
         }
-
-
 
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -87,10 +102,6 @@ namespace PaintForm0
 
         }
 
-        private void pictureBox1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
 
 
         /**
@@ -101,24 +112,76 @@ namespace PaintForm0
             /********************************************************/
             //dibujar
             sp = e.Location;
+            ep = e.Location;
             bClickIzq = (e.Button == MouseButtons.Left) ? true : false;
             /********************************************************/
+            if (herrSeleccionada == Herramientas.Texto) { 
+
+               
+                TextBox textBoxPaint1 = new TextBox();
+                textBoxPaint1.Location = sp;
+                textBoxPaint1.Name = "textBoxPaint1";
+                textBoxPaint1.Size = new System.Drawing.Size(100, 20);
+                textBoxPaint1.Font = estiloFuente;
+                textBoxPaint1.ForeColor = colorFuente;
+                textBoxPaint1.Leave += new EventHandler(textBoxPaint_Leave);        
+                textBoxPaint1.DoubleClick += new EventHandler(textBoxPaint1_DoubleClick);
+                textBoxPaint1.Disposed += new EventHandler(textBoxPaint1_Disposed);
+                pictureBox1.Controls.Add(textBoxPaint1);
+               
+            }
 
         }
 
+        void textBoxPaint1_Disposed(object sender, EventArgs e) {
+
+            
+        }    
+
+        private void textBoxPaint1_DoubleClick(object sender, EventArgs e) {
+            textBoxPaint_Leave(sender, e);
+        }
+
+        private void textBoxPaint_Leave(object sender, EventArgs e) {
+
+            textBox1.Text = "PointText: " + ((TextBox)sender).Location.ToString();
+            textBox1.Text += "\n sp: " + sp.ToString();
+            textBox1.Text += "\n  ep: " + ep.ToString();
+            string aux = ((TextBox)sender).Text;
+            Point p = ((TextBox)sender).Location;
+            
+
+            ((TextBox)sender).Leave -= new EventHandler(textBoxPaint_Leave);
+            pictureBox1.Controls.Remove((TextBox)sender);
+            ((TextBox)sender).Dispose();
+
+
+            /*
+                Hay un problema con el dibujado de las letras..
+             *  Cuando se remueve el texbox , las letras debajo de esa
+             *  area no se ven. Por ahora lo solucionamos escribiendo 
+             *  en la coordenada debajo del texbox. py + Height
+             */
+            g = pictureBox1.CreateGraphics();
+            SolidBrush brush = new SolidBrush(colorFuente);
+            g.DrawString(aux, ((TextBox)sender).Font, brush, p.X, p.Y + estiloFuente.Height); 
+                
+        }
+
         /**
-         * El mouse de mueve sobre el are de dibujo
+         * El mouse de mueve sobre el area de dibujo
          */
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
+    
             if (bClickIzq && herrSeleccionada == Herramientas.Lapiz)
             {
                 ep = e.Location;
                 g = pictureBox1.CreateGraphics();
                 g.DrawLine(p, sp, ep);
+                sp = ep;
             }
-            sp = ep;
-
+            
             /********************************************************/
             //cortar
 
@@ -221,7 +284,15 @@ namespace PaintForm0
          */
         private void TextoButton_Click(object sender, EventArgs e) {
 
-            herrSeleccionada = Herramientas.Texto;          
+            herrSeleccionada = Herramientas.Texto;
+
+
+            if (fontDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
+                estiloFuente = fontDialog1.Font;
+                colorFuente = fontDialog1.Color;
+            }
+
+
         }
 
         private void LapizButton_Click(object sender, EventArgs e) {
@@ -234,6 +305,19 @@ namespace PaintForm0
         }
 
         #endregion
+
+
+        private void textBox1_TextChanged(object sender, EventArgs e) { 
+            
+        }
+
+        private void fontDialog1_Apply(object sender, EventArgs e) {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e) {
+
+        }
     }
 
 }
