@@ -1,4 +1,4 @@
-﻿namespace PaintForm0
+namespace PaintForm0
 {
     partial class Form1
     {
@@ -33,27 +33,30 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ButtCortar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBoxRosa = new System.Windows.Forms.PictureBox();
+            this.pictureBoxGris = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAmarillo = new System.Windows.Forms.PictureBox();
+            this.pictureBoxBlanco = new System.Windows.Forms.PictureBox();
+            this.pictureBoxNegro = new System.Windows.Forms.PictureBox();
             this.pictureBoxAzul = new System.Windows.Forms.PictureBox();
             this.pictureBoxRojo = new System.Windows.Forms.PictureBox();
             this.pictureBoxVerde = new System.Windows.Forms.PictureBox();
             this.pictureBoxDefault = new System.Windows.Forms.PictureBox();
-            this.pictureBoxNegro = new System.Windows.Forms.PictureBox();
-            this.pictureBoxBlanco = new System.Windows.Forms.PictureBox();
-            this.pictureBoxAmarillo = new System.Windows.Forms.PictureBox();
-            this.pictureBoxGris = new System.Windows.Forms.PictureBox();
-            this.pictureBoxRosa = new System.Windows.Forms.PictureBox();
             this.trackBarTrazo = new System.Windows.Forms.TrackBar();
+            this.TextoButton = new System.Windows.Forms.Button();
+            this.LapizButton = new System.Windows.Forms.Button();
+            this.SeleccionButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRosa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGris)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAmarillo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBlanco)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNegro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAzul)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRojo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVerde)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDefault)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNegro)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBlanco)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAmarillo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGris)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRosa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTrazo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +78,7 @@
             // 
             this.buttAbrir.Location = new System.Drawing.Point(553, 12);
             this.buttAbrir.Name = "buttAbrir";
-            this.buttAbrir.Size = new System.Drawing.Size(75, 23);
+            this.buttAbrir.Size = new System.Drawing.Size(67, 23);
             this.buttAbrir.TabIndex = 1;
             this.buttAbrir.Text = "Abrir";
             this.buttAbrir.UseVisualStyleBackColor = true;
@@ -89,7 +92,7 @@
             // 
             this.ButtCortar.Location = new System.Drawing.Point(553, 41);
             this.ButtCortar.Name = "ButtCortar";
-            this.ButtCortar.Size = new System.Drawing.Size(75, 23);
+            this.ButtCortar.Size = new System.Drawing.Size(67, 23);
             this.ButtCortar.TabIndex = 2;
             this.ButtCortar.Text = "Cortar";
             this.ButtCortar.UseVisualStyleBackColor = true;
@@ -107,10 +110,60 @@
             this.panel1.Controls.Add(this.pictureBoxRojo);
             this.panel1.Controls.Add(this.pictureBoxVerde);
             this.panel1.Controls.Add(this.pictureBoxDefault);
-            this.panel1.Location = new System.Drawing.Point(553, 70);
+            this.panel1.Location = new System.Drawing.Point(553, 189);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(67, 168);
             this.panel1.TabIndex = 3;
+            // 
+            // pictureBoxRosa
+            // 
+            this.pictureBoxRosa.BackColor = System.Drawing.Color.Fuchsia;
+            this.pictureBoxRosa.Location = new System.Drawing.Point(3, 136);
+            this.pictureBoxRosa.Name = "pictureBoxRosa";
+            this.pictureBoxRosa.Size = new System.Drawing.Size(27, 27);
+            this.pictureBoxRosa.TabIndex = 8;
+            this.pictureBoxRosa.TabStop = false;
+            this.pictureBoxRosa.Click += new System.EventHandler(this.pictureBoxRosa_Click);
+            // 
+            // pictureBoxGris
+            // 
+            this.pictureBoxGris.BackColor = System.Drawing.Color.Gray;
+            this.pictureBoxGris.Location = new System.Drawing.Point(36, 136);
+            this.pictureBoxGris.Name = "pictureBoxGris";
+            this.pictureBoxGris.Size = new System.Drawing.Size(27, 27);
+            this.pictureBoxGris.TabIndex = 7;
+            this.pictureBoxGris.TabStop = false;
+            this.pictureBoxGris.Click += new System.EventHandler(this.pictureBoxGris_Click);
+            // 
+            // pictureBoxAmarillo
+            // 
+            this.pictureBoxAmarillo.BackColor = System.Drawing.Color.Yellow;
+            this.pictureBoxAmarillo.Location = new System.Drawing.Point(3, 103);
+            this.pictureBoxAmarillo.Name = "pictureBoxAmarillo";
+            this.pictureBoxAmarillo.Size = new System.Drawing.Size(27, 27);
+            this.pictureBoxAmarillo.TabIndex = 6;
+            this.pictureBoxAmarillo.TabStop = false;
+            this.pictureBoxAmarillo.Click += new System.EventHandler(this.pictureBoxAmarillo_Click);
+            // 
+            // pictureBoxBlanco
+            // 
+            this.pictureBoxBlanco.BackColor = System.Drawing.Color.White;
+            this.pictureBoxBlanco.Location = new System.Drawing.Point(3, 70);
+            this.pictureBoxBlanco.Name = "pictureBoxBlanco";
+            this.pictureBoxBlanco.Size = new System.Drawing.Size(27, 27);
+            this.pictureBoxBlanco.TabIndex = 5;
+            this.pictureBoxBlanco.TabStop = false;
+            this.pictureBoxBlanco.Click += new System.EventHandler(this.pictureBoxBlanco_Click);
+            // 
+            // pictureBoxNegro
+            // 
+            this.pictureBoxNegro.BackColor = System.Drawing.Color.Black;
+            this.pictureBoxNegro.Location = new System.Drawing.Point(3, 37);
+            this.pictureBoxNegro.Name = "pictureBoxNegro";
+            this.pictureBoxNegro.Size = new System.Drawing.Size(27, 27);
+            this.pictureBoxNegro.TabIndex = 4;
+            this.pictureBoxNegro.TabStop = false;
+            this.pictureBoxNegro.Click += new System.EventHandler(this.pictureBoxNegro_Click);
             // 
             // pictureBoxAzul
             // 
@@ -151,69 +204,55 @@
             this.pictureBoxDefault.TabIndex = 0;
             this.pictureBoxDefault.TabStop = false;
             // 
-            // pictureBoxNegro
-            // 
-            this.pictureBoxNegro.BackColor = System.Drawing.Color.Black;
-            this.pictureBoxNegro.Location = new System.Drawing.Point(3, 37);
-            this.pictureBoxNegro.Name = "pictureBoxNegro";
-            this.pictureBoxNegro.Size = new System.Drawing.Size(27, 27);
-            this.pictureBoxNegro.TabIndex = 4;
-            this.pictureBoxNegro.TabStop = false;
-            this.pictureBoxNegro.Click += new System.EventHandler(this.pictureBoxNegro_Click);
-            // 
-            // pictureBoxBlanco
-            // 
-            this.pictureBoxBlanco.BackColor = System.Drawing.Color.White;
-            this.pictureBoxBlanco.Location = new System.Drawing.Point(3, 70);
-            this.pictureBoxBlanco.Name = "pictureBoxBlanco";
-            this.pictureBoxBlanco.Size = new System.Drawing.Size(27, 27);
-            this.pictureBoxBlanco.TabIndex = 5;
-            this.pictureBoxBlanco.TabStop = false;
-            this.pictureBoxBlanco.Click += new System.EventHandler(this.pictureBoxBlanco_Click);
-            // 
-            // pictureBoxAmarillo
-            // 
-            this.pictureBoxAmarillo.BackColor = System.Drawing.Color.Yellow;
-            this.pictureBoxAmarillo.Location = new System.Drawing.Point(3, 103);
-            this.pictureBoxAmarillo.Name = "pictureBoxAmarillo";
-            this.pictureBoxAmarillo.Size = new System.Drawing.Size(27, 27);
-            this.pictureBoxAmarillo.TabIndex = 6;
-            this.pictureBoxAmarillo.TabStop = false;
-            this.pictureBoxAmarillo.Click += new System.EventHandler(this.pictureBoxAmarillo_Click);
-            // 
-            // pictureBoxGris
-            // 
-            this.pictureBoxGris.BackColor = System.Drawing.Color.Gray;
-            this.pictureBoxGris.Location = new System.Drawing.Point(36, 136);
-            this.pictureBoxGris.Name = "pictureBoxGris";
-            this.pictureBoxGris.Size = new System.Drawing.Size(27, 27);
-            this.pictureBoxGris.TabIndex = 7;
-            this.pictureBoxGris.TabStop = false;
-            this.pictureBoxGris.Click += new System.EventHandler(this.pictureBoxGris_Click);
-            // 
-            // pictureBoxRosa
-            // 
-            this.pictureBoxRosa.BackColor = System.Drawing.Color.Fuchsia;
-            this.pictureBoxRosa.Location = new System.Drawing.Point(3, 136);
-            this.pictureBoxRosa.Name = "pictureBoxRosa";
-            this.pictureBoxRosa.Size = new System.Drawing.Size(27, 27);
-            this.pictureBoxRosa.TabIndex = 8;
-            this.pictureBoxRosa.TabStop = false;
-            this.pictureBoxRosa.Click += new System.EventHandler(this.pictureBoxRosa_Click);
-            // 
             // trackBarTrazo
             // 
-            this.trackBarTrazo.Location = new System.Drawing.Point(553, 244);
+            this.trackBarTrazo.Location = new System.Drawing.Point(553, 366);
             this.trackBarTrazo.Name = "trackBarTrazo";
             this.trackBarTrazo.Size = new System.Drawing.Size(67, 45);
             this.trackBarTrazo.TabIndex = 4;
             this.trackBarTrazo.Scroll += new System.EventHandler(this.trackBarTrazo_Scroll);
+            // 
+            // TextoButton
+            // 
+            this.TextoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextoButton.Location = new System.Drawing.Point(553, 119);
+            this.TextoButton.Name = "TextoButton";
+            this.TextoButton.Size = new System.Drawing.Size(75, 23);
+            this.TextoButton.TabIndex = 5;
+            this.TextoButton.Text = "Texto";
+            this.TextoButton.UseVisualStyleBackColor = true;
+            this.TextoButton.Click += new System.EventHandler(this.TextoButton_Click);
+            // 
+            // LapizButton
+            // 
+            this.LapizButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LapizButton.Location = new System.Drawing.Point(553, 93);
+            this.LapizButton.Name = "LapizButton";
+            this.LapizButton.Size = new System.Drawing.Size(75, 23);
+            this.LapizButton.TabIndex = 6;
+            this.LapizButton.Text = "Lapiz";
+            this.LapizButton.UseVisualStyleBackColor = true;
+            this.LapizButton.Click += new System.EventHandler(this.LapizButton_Click);
+            // 
+            // SeleccionButton
+            // 
+            this.SeleccionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SeleccionButton.Location = new System.Drawing.Point(556, 149);
+            this.SeleccionButton.Name = "SeleccionButton";
+            this.SeleccionButton.Size = new System.Drawing.Size(72, 23);
+            this.SeleccionButton.TabIndex = 7;
+            this.SeleccionButton.Text = "Seleccion";
+            this.SeleccionButton.UseVisualStyleBackColor = true;
+            this.SeleccionButton.Click += new System.EventHandler(this.SeleccionButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 461);
+            this.Controls.Add(this.SeleccionButton);
+            this.Controls.Add(this.LapizButton);
+            this.Controls.Add(this.TextoButton);
             this.Controls.Add(this.trackBarTrazo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ButtCortar);
@@ -224,15 +263,15 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRosa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGris)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAmarillo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBlanco)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNegro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAzul)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRojo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVerde)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDefault)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNegro)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBlanco)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAmarillo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGris)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRosa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTrazo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -256,6 +295,9 @@
         private System.Windows.Forms.PictureBox pictureBoxBlanco;
         private System.Windows.Forms.PictureBox pictureBoxNegro;
         private System.Windows.Forms.TrackBar trackBarTrazo;
+        private System.Windows.Forms.Button TextoButton;
+        private System.Windows.Forms.Button LapizButton;
+        private System.Windows.Forms.Button SeleccionButton;
     }
 }
 
