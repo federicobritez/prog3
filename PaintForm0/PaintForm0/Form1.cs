@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace PaintForm0
 {
+    public enum Herramientas { Lapiz , PintarFondo, Gotero, Borrador, Seleccion, Texto, ZoomIn, ZoomOut};
+
 
     public partial class Form1 : Form
     {
@@ -18,9 +20,11 @@ namespace PaintForm0
         //dibujar con lapiz
         Graphics g;
         Pen p = new Pen(Color.Black, 1);
-        Point sp = new Point(0, 0);
-        Point ep = new Point(0, 0);
-        int k = 0;
+        Point sp = new Point(0, 0);   //Cordenada X del puntero donde comienza la linea/pincel
+        Point ep = new Point(0, 0);   //Cordenada Y del puntero donde termina la linea/pincel      
+        bool bClickIzq = false;  // Variable para saber si el click esta activado
+
+        Herramientas herrSeleccionada = Herramientas.Lapiz; //Por default la herramienta es el lapiz
         /*************************************/
 
 
@@ -53,10 +57,17 @@ namespace PaintForm0
         {
         }
 
+
+        /**
+         * Apertura de archivos:
+         * 
+         * TODO: Filtrar solo los bmp y los jpg
+         */
         private void buttAbrir_Click(object sender, EventArgs e)
         {
 
             OpenFileDialog Dlg = new OpenFileDialog();//funciona esto
+            
             if (Dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 pictureBox1.Image = Image.FromFile(Dlg.FileName);
@@ -81,28 +92,30 @@ namespace PaintForm0
 
         }
 
+
+        /**
+         * El mouse se preciona sobre el arae de dibujo
+         */
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             /********************************************************/
             //dibujar
             sp = e.Location;
-            if (e.Button == MouseButtons.Left)
-            {
-                k = 1;
-            }
+            bClickIzq = (e.Button == MouseButtons.Left) ? true : false;
             /********************************************************/
 
         }
 
+        /**
+         * El mouse de mueve sobre el are de dibujo
+         */
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (k == 1)
+            if (bClickIzq && herrSeleccionada == Herramientas.Lapiz)
             {
                 ep = e.Location;
                 g = pictureBox1.CreateGraphics();
                 g.DrawLine(p, sp, ep);
-
-
             }
             sp = ep;
 
@@ -116,7 +129,8 @@ namespace PaintForm0
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            k = 0;
+            bClickIzq =false;
+
         }
         private void ButtCortar_Click(object sender, EventArgs e)
         {
@@ -127,6 +141,10 @@ namespace PaintForm0
             
         }
 
+
+        /**
+         * Paleta de Colores
+         */
         private void pictureBoxRojo_Click(object sender, EventArgs e)
         {
             p.Color = pictureBoxRojo.BackColor;
@@ -182,10 +200,40 @@ namespace PaintForm0
 
         }
 
+
+
+        /**
+         * Tamaño del trazo de lapiz 
+         */
         private void trackBarTrazo_Scroll(object sender, EventArgs e)
         {
             int ancho = trackBarTrazo.Value;
             this.p = new Pen(this.pictureBoxDefault.BackColor, ancho);
         }
+
+
+
+
+
+        #region Botones de Herramientas
+        /**
+         * Inserción de Texto en area de dibujo
+         */
+        private void TextoButton_Click(object sender, EventArgs e) {
+
+            herrSeleccionada = Herramientas.Texto;          
+        }
+
+        private void LapizButton_Click(object sender, EventArgs e) {
+
+            herrSeleccionada = Herramientas.Lapiz; 
+        }
+
+        private void SeleccionButton_Click(object sender, EventArgs e) {
+            herrSeleccionada = Herramientas.Seleccion;
+        }
+
+        #endregion
     }
+
 }
